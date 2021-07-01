@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+spec:
+  selector:
+    matchLabels:
+      run: nodejs
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: nodejs
+    spec:
+      containers:
+      - name: nodejs
+        image: afermin/partyutilityfunctions:latest
+        ports:
+        - containerPort: 3000
